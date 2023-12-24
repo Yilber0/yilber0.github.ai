@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   
+    <link rel="icon" href="helado.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMECREAM</title>
+    <style>
+
+           /* Estilo base del elemento */
+           li {
+            font-size: 16px;
+            transition: font-size 0.3s; /* Agrega una transición para suavizar el cambio */
+        }
+
+        /* Estilo adicional al pasar el cursor sobre el elemento */
+        li:hover {
+            font-size: 20px;  color: #036e34;/* Tamaño de fuente más grande al pasar el cursor */
+        }
+         #copiar-factura {
+            background-color: #3498db; /* Azul */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: initial;
+        }
+
+        #copiar-factura:hover {
+            background-color: #07f107; 
+        }
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(https://i.pinimg.com/originals/fc/a3/3f/fca33f325c82e5d9faa4d85913028b1d.jpg);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        header {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-image: url(https://i.pinimg.com/originals/fc/a3/3f/fca33f325c82e5d9faa4d85913028b1d.jpg);
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .helado {
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .helado:hover {
+            transform: scale(1.05);
+        }
+
+        .helado h2 {
+            margin-bottom: 10px;
+        }
+
+        .helado p {
+            margin-bottom: 15px;
+        }
+
+        .helado button {
+            background-color: #101738;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .helado button:hover {
+            background-color: #0c18ca;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .mani {
+            background-image: url('https://img.freepik.com/foto-gratis/vista-superior-mani_23-2148452961.jpg?size=338&ext=jpg&ga=GA1.1.756727754.1703029918&semt=sph');
+            color: #330f0f;
+        }
+
+        .fresa {
+            background-image: url('https://img.freepik.com/foto-gratis/fresas_1194-2304.jpg?size=626&ext=jpg');
+            color: #ffffff;
+        }
+
+        .bocadillo {
+            background-image: url('https://img.freepik.com/fotos-premium/fruta-fresca-guayaba-verde-tambien-conocida-como-amrood-hindi-peru-marathi-servida-canasta-entera-o-rodajas-sobre-fondo-colores-enfoque-selectivo_466689-62189.jpg?size=626&ext=jpg&ga=GA1.1.756727754.1703029918&semt=sph');
+            color: #00fff2;
+        }
+
+        .salpicon {
+            background-image: url('https://img.freepik.com/foto-gratis/mezcla-bayas_1147-49.jpg?size=626&ext=jpg&ga=GA1.1.756727754.1703029918&semt=ais');
+            color: #00ff40;
+        }
+
+        .coco {
+            background-image: url('https://img.freepik.com/fotos-premium/rebanada-coco-coco-maduro-aislado_531456-160.jpg?size=626&ext=jpg&ga=GA1.1.756727754.1703029918&semt=sph');
+            color: #000000;
+        }
+
+        .oreo {
+            background-image: url('https://img.freepik.com/foto-gratis/galleta-rota-copia-espacio-fondo-azul_23-2148362318.jpg?size=626&ext=jpg&ga=GA1.2.756727754.1703029918&semt=sph');
+            color: #ff0000;
+        }
+
+        .guanabana {
+            background-image: url('https://img.freepik.com/fotos-premium/annona-muricata-o-graviola-fruta-guanabana-manzana-dulce-azucarada-crema-leche-cortada-mitad-dos-mitades-fruta-plato-blanco-sobre-naranja-amarillo-vista-superior-fruta-exotica-asia-tropical_157823-149.jpg?size=626&ext=jpg&ga=GA1.1.756727754.1703029918&semt=sph');
+            color: #000000;
+        }
+
+        .mango {
+            background-image: url('https://img.freepik.com/foto-gratis/mango-sobre-mesa_144627-16763.jpg?size=626&ext=jpg&ga=GA1.2.756727754.1703029918&semt=sph');
+            color: #000000;
+        }
+
+        .mora {
+            background-image: url('https://img.freepik.com/fotos-premium/textura-baya-fresco-fondo-baya_982999-34.jpg?size=626&ext=jpg&ga=GA1.2.756727754.1703029918&semt=sph');
+            color: #ffffff;
+        }
+
+        .arequipe {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi3xcEH3zLgd1zkoEPhW-k8ZMDyfqRxIXLBg&usqp=CAU');
+            color: #ffffff;
+        }
+
+        .naranja {
+            background-image: url('https://img.freepik.com/fotos-premium/frutas-naranjas-frescas-hojas-como-vista-superior-fondo_167862-6532.jpg?size=626&ext=jpg&ga=GA1.2.756727754.1703029918&semt=sph');
+            color: #000000;
+        }
+
+        /* Estilo para el contenedor de la factura */
+        #factura-container {
+            background-color: #000000; /* Fondo negro */
+            border: 1px solid #2f00ff;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 8px;
+        }
+
+        /* Estilo para los elementos dentro del contenedor de la factura */
+        #factura-container h3, #detalle-helados, #precio-total {
+            color: #ffffff; /* Texto blanco */
+        }
+
+        #detalle-helados p {
+            color: #dddddd; /* Texto gris claro para detalles de helados */
+        }
+
+        #detalle-helados p span {
+            color: #ffffff; /* Texto blanco para detalles de helados */
+        }
+
+        #factura-container button {
+            background-color: #ffffff; /* Verde de WhatsApp */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: center;
+            margin-right: 10px; /* Espaciado entre los botones */
+        }
+        #factura-container button:hover {
+            background-color: #07f107; 
+            }
+
+            #titulo-x h3{
+                background-color: #101738;
+            }
+
+
+
+         #botones-nota{
+            background-color:#01041d;
+
+
+         }
+         #botones-nota button{
+
+            background-color: #035f21; /* Verde de WhatsApp */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: center;
+            margin-right: 10px; /* Espaciado entre los botones */
+           font-size: 18px;
+            display: inline-block;
+            margin: 10px; /* Agrega espacio entre los iconos */
+            transition: transform 0.3s; /* Agrega una transición para suavizar el cambio de escala */
+
+            
+            
+         }
+         #botones-nota button:hover{
+            background-color: #07f107; 
+            cursor: pointer;
+            transform: scale(1.2); /* Aumenta la escala al pasar el cursor sobre el icono */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+         
+
+       
+        #resultados-container {
+            background-color: #000000;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 20px;
+            display: none; /* Inicialmente oculto */
+        }
+        #resultados-container h3 {
+            color: #0077ff;
+            margin-bottom: 10px;
+        }
+
+        #instruccion h4 {
+            color: #00ff80;
+            margin-bottom: 10px;
+        }
+
+        #resultados {
+            color: #ffffff;
+        }
+        #detalle-helados p {
+    color: #00f150; /* Texto gris claro para detalles de helados */
+}
+#helados-caceros {
+    text-align: initial;
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 20px;
+}
+#pedido-personalizado{
+    text-align: initial;
+    color: beige;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+#iconos-panel{
+
+    background-color: #01041d;
+}
+#iconos-panel a {
+            display: inline-block;
+            margin: 10px; /* Agrega espacio entre los iconos */
+            transition: transform 0.3s; /* Agrega una transición para suavizar el cambio de escala */
+        }
+
+        #iconos-panel a:hover {
+            transform: scale(1.2); /* Aumenta la escala al pasar el cursor sobre el icono */
+        }
+
+#escoger-sabor{
+    background-color: darkorange;
+    margin: 40px;
+    color: #000000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+    text-align: center;
+    font-size: 26px;
+}
+
+#copiar-factura:hover, #btn-whatsapp:hover {
+    background-color: #07f107;
+    transform: scale(1.1); /* Aumenta la escala al pasar el cursor sobre el botón */
+}
+.helado:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer li {
+    font-size: 16px;
+    transition: font-size 0.3s;
+}
+
+footer li:hover {
+    font-size: 18px;
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <header style="background: linear-gradient(45deg, #ff9900, #ff5050); padding: 20px;">
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: #000000; text-align: center; font-size: 50px; margin: 15px;;">
+           
+            🍦BIENVENIDOS A HOMECREAM🍦
+        </h1>
+        <p> <img src="img/paleta-de-hielo.png"  style="width: 80px; height: 80px"></p>
+    </header>
+
+<div id="escoger-sabor">
+<H2>ESCOGE TU SABOR PREFERIDO</H2>
+</div>
+<section id="helados-container">
+    
+    <!-- Contenido generado dinámicamente con JavaScript -->
+</section>
+
+
+<!-- Añade este div para mostrar los resultados -->
+<div id="resultados-container">
+    <h3>Resultado del pedido</h3>
+    <p id="resultados">Aquí se mostrarán los resultados.</p>
+</div>
+
+
+<div id="factura-container">
+    
+    <div></div><strong>
+        <h3>Factura de compra</h3>
+    </strong>
+   
+    <div id="detalle-helados">
+    
+    </div>
+    <p id="precio-total">$0.00</p>
+    <!--codogo borrado -->
+
+
+
+</div>
+
+<div id="botones-nota">
+
+
+ 
+ <button id="btn-whatsapp" onclick="prepararYEnviarWhatsApp()">Enviar a WhatsApp</button>
+
+ <button id="copiar-factura" onclick="copiarFactura()">Copiar Factura</button>
+ <div id="instruccion">
+ <h4>    <p> <img src="img/advertencia.png"  style="width: 50px; height: 50px"></p>Por favor copia la factura y enviarla al contacto de WhatsApp</h4>
+
+ </div>
+
+
+
+<footer>
+ <ul>
+  
+  <div id="helados-caceros">
+
+  <li> <p>&copy; Helados caseros </p> </li>
+  
+  <p>
+    </div>
+        
+    <div= id="pedido-personalizado">
+    <li> <p>Para un pedido más personalizado presiona el icono de WhatsApp </p> </li>
+         <li> <p> Info: 📞 3170386122  </p></li>
+ </div>
+  
+ <div id="iconos-panel">
+    <a href="https://wa.me/573170386122">
+        <img src="img/whatsapp-fill.svg" style="width: 50px; height: 50px">
+    </a>
+    <a href="https://www.facebook.com/yilberf?mibextid=JRoKGi"> <img src="img/facebook-fill.svg"  style="width: 50px; height: 50px"></a>
+</div>
+ </ul>
+
+</footer>
+
+<script>
+
+    const saboresDeHelado = [
+        { nombre: 'Mani', precio: 1500 },
+        { nombre: 'Fresa', precio: 1500 },
+        { nombre: 'Bocadillo', precio: 1500 },
+        { nombre: 'Salpicon', precio: 1500 },
+        { nombre: 'Coco', precio: 1500 },
+        { nombre: 'Oreo', precio: 1500 },
+        { nombre: 'Guanabana', precio: 1500 },
+        { nombre: 'Mango', precio: 1500 },
+        { nombre: 'Mora', precio: 1500 },
+        { nombre: 'Arequipe', precio: 1500 },
+        { nombre: 'Naranja', precio: 1500 },
+    ];
+
+    let cantidadHeladosSeleccionados = 0;
+    let precioTotal = 0;
+    let cantidadPorSabor = {};
+
+    function generarContenidoHelados() {
+        const heladosContainer = document.getElementById('helados-container');
+
+        saboresDeHelado.forEach((helado) => {
+            const heladoElement = document.createElement('div');
+            heladoElement.classList.add('helado', helado.nombre.toLowerCase());
+            heladoElement.innerHTML = `
+                    <h2>${helado.nombre}</h2>
+                    <p><strong>Precio <strong>: <strong> $${helado.precio.toFixed(2)}<strong></p>
+                    <button onclick="Comprar('${helado.nombre}', ${helado.precio})">Comprar helado</button>
+                `;
+            heladosContainer.appendChild(heladoElement);
+        });
+    }
+    function copiarFactura() {
+        const facturaTexto = document.getElementById('factura-container').innerText;
+        navigator.clipboard.writeText(facturaTexto).then(function() {
+            alert('¡Factura copiada al portapapeles!');
+        }, function(err) {
+            console.error('No se pudo copiar la factura: ', err);
+        });
+    }
+
+    function Comprar(nombre, precio) {
+    cantidadHeladosSeleccionados++;
+    precioTotal += precio;
+    actualizarCarrito();
+
+    if (!cantidadPorSabor[nombre]) {
+        cantidadPorSabor[nombre] = 1;
+    } else {
+        cantidadPorSabor[nombre]++;
+    }
+
+    console.log(cantidadPorSabor); // Agrega esta línea para mostrar el contenido del objeto
+
+    alert(`¡${nombre} agregado a la lista! Precio: $${precio.toFixed(2)}`);
+}
+
+
+    function actualizarCarrito() {
+        const detalleHeladosElement = document.getElementById('detalle-helados');
+        detalleHeladosElement.innerHTML = ''; // Limpia el contenido antes de actualizar
+
+        for (const sabor in cantidadPorSabor) {
+            const cantidad = cantidadPorSabor[sabor];
+
+            const nuevoItem = document.createElement('p');
+            nuevoItem.textContent = `${sabor} x${cantidad} - $${(cantidad * saboresDeHelado.find(h => h.nombre === sabor).precio).toFixed(2)}`;
+            detalleHeladosElement.appendChild(nuevoItem);
+        }
+
+        const precioTotalElement = document.getElementById('precio-total');
+        precioTotalElement.textContent = `$${precioTotal.toFixed(2)}`;
+    }
+
+    function prepararYEnviarWhatsApp() {
+        const mensaje = `Hola, he seleccionado ${cantidadHeladosSeleccionados} helados de Homecream con un precio total de $${precioTotal.toFixed(2)}. ¿Puedes confirmar mi pedido?`;
+        
+        // Actualiza el contenedor de resultados
+        const resultadosContainer = document.getElementById('resultados-container');
+        const resultadosElement = document.getElementById('resultados');
+        resultadosElement.textContent = mensaje;
+        resultadosContainer.style.display = 'block'; // Muestra el contenedor
+
+        enviarWhatsApp(mensaje);
+    }
+
+    function enviarWhatsApp(mensaje) {
+        const numeroWhatsApp = '573170386122';
+        const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+        window.open(enlaceWhatsApp, '_blank');
+    }
+ 
+    // Llama a la función para generar el contenido al cargar la página
+    window.onload = generarContenidoHelados;
+    
+    
+</script>
+
+</body>
+</html>
